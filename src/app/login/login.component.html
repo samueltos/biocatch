@@ -1,0 +1,25 @@
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end lhead">
+                <h2 class="text-white">User Login</h2>
+                <hr class="divider" />
+            </div>
+            <div class="col-lg-8 align-self-baseline lform" id="loginform">
+                <form (ngSubmit)="loginCheck()" #loginform="ngForm">
+                    <div class="email">
+                        <label class="text-white-75 mb-5" for="email">email address</label>
+                        <input type="text" name="email" id="email" [(ngModel)]="userlogin.email" >
+                    </div>
+                    <div class="password">
+                        <label class="text-white-75 mb-5" for="password">password</label>
+                        <input type="password" name="password" id="password" [(ngModel)]="userlogin.password" >
+                    </div>
+
+                    <button class="btn btn-primary btn-xl" type="submit" [disabled]="!loginform.form.valid">Login</button>
+                </form>
+            </div>
+        </div>
+        </div>
+</header>
+

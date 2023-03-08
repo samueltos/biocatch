@@ -1,0 +1,57 @@
+.homepage{
+    width: 65%;
+    margin: auto;
+}
+
+.usernav{
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+
+    .profile{
+        color: var(--primaryColor);
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .d-flex{
+        // height: 40px;
+
+        .btn{
+            background: white;
+            color: var(--primaryColor);
+            margin-left: 10px;
+            font-size: 12px;
+        }
+        
+    }
+}
+
+thead tr th{
+    background-color: var(--primaryColor) !important;
+    // color: white;
+}
+
+
+
+
+.pagination{
+    margin-top: 100px !important;
+
+    .active{
+        a{
+            background-color: var(--primaryColor) !important;
+            border: 1px solid var(--primaryColor);
+            color: white;
+        }   
+    }
+
+    .page-link{
+        color: black;
+    }
+
+    .disabled a{
+       color: #AEAEAE !important; 
+    }
+}

@@ -1,0 +1,29 @@
+<section class="page-section deposit" id="deposit">
+   
+    <div class="current">
+        <h2>Deposit Money/Check</h2>
+    </div>
+    
+    
+    <div class="depositform">
+
+        <form (ngSubmit)="onSubmit()" #depositForm="ngForm">
+            <div class="mb-3">
+                <label for="accounttype" class="form-label">Deposit To</label>
+                <input type="text" class="form-control" id="accounttype" readonly name="accounttype" placeholder="{{user.customerId}}">
+            </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="date"  name="date">
+            </div>
+
+            <div class="mb-3">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="text" class="form-control" id="amount"  name="amount" [(ngModel)]="deposit.amount" >
+            </div>
+
+            <button type="submit" [disabled]="!depositForm.form.valid" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+  </section>

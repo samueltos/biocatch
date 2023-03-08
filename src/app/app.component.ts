@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+declare let scripts: any;
+declare let index: any;
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,26 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'biocatch';
+  pageTitle = "app";
+  @Input() public isUserLoggedIn: boolean;
+
+
+  loginstatus:String = "";
+
+  constructor(private route: Router){
+
+  }
+
+  setLoginStatus(val: String){
+    this.isUserLoggedIn = true;
+    this.loginstatus = val;
+  }
+
+
+
+  logout(){
+    this.isUserLoggedIn = false;
+    this.route.navigate(['/']);
+  }
+
 }

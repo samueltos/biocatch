@@ -1,0 +1,35 @@
+<section class="page-section payment" id="payment">
+   
+    <div class="current">
+        <h2>Make Payment/Transfer Money</h2>
+        <h2 *ngIf="balance">Current Balance: {{ balance | currency}}</h2>
+    </div>
+    
+    
+    <div class="transferform">
+
+        <form (ngSubmit)="onSubmit()" #paymentForm="ngForm">
+            <div class="mb-3">
+                <label for="accounttype" class="form-label">Transfer From</label>
+                <input type="text" class="form-control" id="accounttype" readonly  name="accounttype" *ngIf="user" placeholder="{{user.customerId}}">
+            </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="text" [(ngModel)]="payment.date" class="form-control" id="date"  name="date" placeholder="yyyy-mm-dd">
+            </div>
+
+            <div class="mb-3">
+                <label for="purpose" class="form-label">Purpose</label>
+                <input type="email" [(ngModel)]="payment.description" class="form-control" id="purpose"  name="purpose">
+            </div>
+
+            <div class="mb-3">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="text" [(ngModel)]="payment.amount" class="form-control" id="amount"  name="amount">
+            </div>
+
+            <button type="submit" [disabled]="!paymentForm.form.valid" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+  </section>

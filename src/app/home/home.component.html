@@ -1,0 +1,54 @@
+<section class="page-section homepage" id="home">
+   
+  <div class="current">
+      <h4 *ngIf="user">Welcome {{user.firstName}}</h4>
+
+      <h4>Your current balance: {{balance | currency}}</h4>
+  </div>
+  
+  
+  <div class="usernav">     
+        <h3 class="profile">Past Transactions</h3>
+        
+        <div class="d-flex" role="editsave">
+            <a class="btn" routerLink="#">Download Transactions</a>
+        </div>
+    </div>
+     
+        
+
+    <table class="table table-light">
+        <thead>
+          <tr>
+            <th scope="col">TRANSACTION ID</th>
+            <th scope="col">DATE</th>
+            <th scope="col" colspan="2">DESCRIPTION</th>
+            <th scope="col">AMOUNT</th>
+            <!-- <th scope="col">BALANCE</th> -->
+          </tr>
+        </thead>
+        <tbody *ngIf="transactions" >
+          <tr *ngFor="let transaction of transactions"> 
+            <th scope="row">{{ transaction?.id }}</th>
+            <td scope="row">{{ transaction?.date }}</td>
+            <td colspan="2">{{ transaction?.description }}</td>
+            <td> {{ transaction?.amount }}</td>
+            <!-- <td>{{ transaction.balance }}</td> -->
+          </tr>
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link">Previous</a>
+          </li>
+          <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+    </nav>
+</section>
