@@ -8,12 +8,12 @@
             <div class="col-lg-8 align-self-baseline lform" id="loginform">
                 <form (ngSubmit)="loginCheck()" #loginform="ngForm">
                     <div class="email">
-                        <label class="text-white-75 mb-5" for="email">email address</label>
-                        <input type="text" name="email" id="email" [(ngModel)]="userlogin.email" >
+                        <label class="text-white-75 mb-5" for="email">Email Address</label>
+                        <input type="text" name="email" id="email" [(ngModel)]="userlogin.email" required>
                     </div>
                     <div class="password">
-                        <label class="text-white-75 mb-5" for="password">password</label>
-                        <input type="password" name="password" id="password" [(ngModel)]="userlogin.password" >
+                        <label class="text-white-75 mb-5" for="password">Password</label>
+                        <input type="password" name="password" id="password" [(ngModel)]="userlogin.password" required>
                     </div>
 
                     <button class="btn btn-primary btn-xl" type="submit" [disabled]="!loginform.form.valid">Login</button>

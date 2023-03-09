@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { catchError, Observable, retry, throwError } from 'rxjs';
 import { User } from './user';
 import { UserLogin } from './user-login';
 
@@ -18,7 +18,8 @@ export class LoginService {
   }
 
   public login(userlogin:UserLogin): Observable<User>{
-    return this.http.post<User>(`${this.apiBaseUrl}/logn`, userlogin);
+    return this.http.post<User>(`${this.apiBaseUrl}/logn`, userlogin)
+    .pipe(retry(1), catchError(this.handleError));
   } 
 
   public shareUSer(){
@@ -27,5 +28,20 @@ export class LoginService {
 
   public setShareUser(user: User){
     this.userValue = user;
+  }
+
+
+  handleError(error:any) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.error}`;
+    } else {
+      // server-side error
+      errorMessage = `Message: ${error.error}`;
+    }
+    return throwError(() => {
+        return errorMessage;
+    });
   }
 }

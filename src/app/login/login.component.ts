@@ -12,7 +12,6 @@ import { UserLogin } from './user-login';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
-  pageTitle = "login";
   userlogin: UserLogin = new UserLogin();
   user: User;
 
@@ -20,35 +19,31 @@ export class LoginComponent implements OnInit{
 
   }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
 
   loginCheck(){
 
-    this.loginService.login(this.userlogin).subscribe(data => {
-        if(data == null){
-          this.userNotLogin();
-        }else{
-          this.user = data;
-          this.app.isUserLoggedIn = true;
-          this.app.loginstatus = this.user.firstName;
-          this.app.setLoginStatus(this.user.firstName);
-          this.homepage(this.user);
-        }
-        
+    this.loginService.login(this.userlogin).subscribe({
+      next: (resp : User) => {
+        this.user = resp;
+        this.homePage(this.user)
+      },
+      error: (err:any) => {
+        const error_response = err;
+        window.alert(error_response)
+      }
     });
   }
 
-  userNotLogin(){
-    window.alert("Wrong user name or password");
-  }
 
-  homepage(user: User){
-    // this.router.navigate(['/home', this.user]);
+  homePage(user: User){
+    this.app.isUserLoggedIn = true;
+    this.app.loginstatus = this.user.firstName;
+    this.app.setLoginStatus(this.user.firstName);
     this.loginService.setShareUser(this.user)
     this.router.navigate(['/home']);
   }
-
 
 
 

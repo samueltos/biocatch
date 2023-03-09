@@ -13,7 +13,6 @@ import { Payment } from './payment';
 })
 
 export class PaymentComponent implements OnInit{
-  pageTitle = "payment";
   user: User;
   payment: Payment = new Payment;
   balance: number;

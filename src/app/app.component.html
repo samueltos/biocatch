@@ -9,7 +9,7 @@
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-                <button class="btn login" *ngIf="!isUserLoggedIn"> <a routerLink="login">Login</a> </button>
+                <button class="btn login"> <a routerLink="login">Login</a> </button>
             </div>
         </div>
     </nav>
@@ -24,7 +24,7 @@
                     <li class="nav-item"><a class="nav-link" routerLink="/payment">Make Payment</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="/deposit">Deposit</a></li>
                 </ul>
-                <button id="logout" class="btn login" *ngIf="isUserLoggedIn"> <button class="logbtn" (click)="logout()">LogOut</button> </button>
+                <button id="logout" class="btn login"> <button class="logbtn" (click)="logOut()">LogOut</button> </button>
             </div>
         </div>
     </nav>

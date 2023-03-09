@@ -10,10 +10,7 @@ declare let index: any;
 })
 export class AppComponent {
   title = 'biocatch';
-  pageTitle = "app";
   @Input() public isUserLoggedIn: boolean;
-
-
   loginstatus:String = "";
 
   constructor(private route: Router){
@@ -27,7 +24,7 @@ export class AppComponent {
 
 
 
-  logout(){
+  logOut(){
     this.isUserLoggedIn = false;
     this.route.navigate(['/']);
   }
