@@ -1,9 +1,9 @@
 <section class="page-section homepage" id="home">
    
   <div class="current">
-      <h4 *ngIf="user">Welcome {{user.firstName}}</h4>
-
-      <h4>Your current balance: {{balance | currency}}</h4>
+      <div><label *ngIf="user">Welcome {{user.firstName}}</label></div>
+      <div><label>Account Number: </label><label *ngIf="user">{{user.customerId}}</label></div>
+      <div><label>Balance: </label><label>{{balance | currency}}</label></div>
   </div>
   
   
